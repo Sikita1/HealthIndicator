@@ -11,6 +11,8 @@ public class HealthDisplaySlider : MonoBehaviour
 
     private Coroutine _coroutine;
 
+    private float _delay = 0.02f;
+
     private void OnEnable()
     {
         _player.ChangedHealth += OnHealthChanged;
@@ -33,10 +35,12 @@ public class HealthDisplaySlider : MonoBehaviour
 
     private IEnumerator SlideDisplay(float health)
     {
+        WaitForSeconds wait = new WaitForSeconds(_delay);
+
         while (_slider.value != health)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, health, 1f);
-            yield return new WaitForSeconds(0.02f);
+            yield return wait;
         }
     }
 }
