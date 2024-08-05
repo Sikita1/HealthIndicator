@@ -7,7 +7,8 @@ public class HealthDisplaySlider : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private TMP_Text _text;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Slider _firstSlider;
+    [SerializeField] private Slider _secondSlider;
 
     private Coroutine _coroutine;
 
@@ -28,18 +29,25 @@ public class HealthDisplaySlider : MonoBehaviour
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        _coroutine = StartCoroutine(SlideDisplay(health));
+        _coroutine = StartCoroutine(SmoothSliderChange(health));
+        SliderChange(health);
 
-        _text.text = $"Çהמנמגüו: {health}%";
+        if (_text != null)
+            _text.text = $"Çהמנמגüו: {health}%";
     }
 
-    private IEnumerator SlideDisplay(float health)
+    private void SliderChange(float health)
+    {
+        _secondSlider.value = health;
+    }
+
+    private IEnumerator SmoothSliderChange(float health)
     {
         WaitForSeconds wait = new WaitForSeconds(_delay);
 
-        while (_slider.value != health)
+        while (_firstSlider.value != health)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, health, 1f);
+            _firstSlider.value = Mathf.MoveTowards(_firstSlider.value, health, 1f);
             yield return wait;
         }
     }
