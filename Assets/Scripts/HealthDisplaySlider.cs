@@ -11,8 +11,10 @@ public class HealthDisplaySlider : MonoBehaviour
     [SerializeField] private Slider _secondSlider;
 
     private Coroutine _coroutine;
+    private WaitForSeconds _wait;
 
     private float _delay = 0.02f;
+    private float _maxDelta = 1f;
 
     private void OnEnable()
     {
@@ -43,12 +45,12 @@ public class HealthDisplaySlider : MonoBehaviour
 
     private IEnumerator SmoothSliderChange(float health)
     {
-        WaitForSeconds wait = new WaitForSeconds(_delay);
+        _wait = new WaitForSeconds(_delay);
 
         while (_firstSlider.value != health)
         {
-            _firstSlider.value = Mathf.MoveTowards(_firstSlider.value, health, 1f);
-            yield return wait;
+            _firstSlider.value = Mathf.MoveTowards(_firstSlider.value, health, _maxDelta);
+            yield return _wait;
         }
     }
 }
