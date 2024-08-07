@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Button _applyDamage;
-    [SerializeField] private Button _treat;
+    [SerializeField] private Button _damageButton;
+    [SerializeField] private Button _treatmentButton;
 
     public event UnityAction<float> ChangedHealth;
     
@@ -16,12 +16,24 @@ public class Player : MonoBehaviour
     private float _damage = 10f;
     private float _treatment = 10f;
 
+    private void OnEnable()
+    {
+        _treatmentButton.onClick.AddListener(Heal);
+        _damageButton.onClick.AddListener(TakeDamage);
+    }
+
+    private void OnDisable()
+    {
+        _treatmentButton.onClick.RemoveListener(Heal);
+        _damageButton.onClick.RemoveListener(TakeDamage);
+    }
+
     private void Start()
     {
         ChangedHealth?.Invoke(_health);
     }
 
-    public void OnClickButtonDamage()
+    private void TakeDamage()
     {
         _health -= _damage;
 
@@ -31,7 +43,7 @@ public class Player : MonoBehaviour
         ChangedHealth?.Invoke(_health);
     }
 
-    public void OnClickButtonTreat()
+    private void Heal()
     {
         _health += _treatment;
 

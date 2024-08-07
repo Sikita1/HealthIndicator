@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 57327707}
   - component: {fileID: 57327709}
+  - component: {fileID: 57327710}
   m_Layer: 5
-  m_Name: Slider2
+  m_Name: SliderBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +157,7 @@ RectTransform:
   - {fileID: 1428426543}
   - {fileID: 2140357865}
   m_Father: {fileID: 2063842273}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -214,6 +215,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &57327710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57327706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76cb73e6440217458db03570c902a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1281100061}
+  _slider: {fileID: 57327709}
 --- !u!1 &173117346
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,8 +239,9 @@ GameObject:
   m_Component:
   - component: {fileID: 173117347}
   - component: {fileID: 173117348}
+  - component: {fileID: 173117349}
   m_Layer: 5
-  m_Name: Slider1
+  m_Name: SliderSmoothBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +263,7 @@ RectTransform:
   - {fileID: 1555001176}
   - {fileID: 1327896172}
   m_Father: {fileID: 2063842273}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -305,6 +321,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &173117349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173117346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccb8862e7d6c7f47b6206cef4faf8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1281100061}
+  _slider: {fileID: 173117348}
 --- !u!1 &430892353
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,19 +1013,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1120066335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1281100061}
-        m_TargetAssemblyTypeName: HealthChanged, Assembly-CSharp
-        m_MethodName: OnClickButtonDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1120066335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,8 +1242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d86b860b426fb54faf7f6303a9f237e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _applyDamage: {fileID: 1120066334}
-  _treat: {fileID: 1991195805}
+  _damageButton: {fileID: 1120066334}
+  _treatmentButton: {fileID: 1991195805}
 --- !u!1 &1327896171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,19 +1725,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1991195806}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1281100061}
-        m_TargetAssemblyTypeName: HealthChanged, Assembly-CSharp
-        m_MethodName: OnClickButtonTreat
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1991195806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,8 +1775,9 @@ GameObject:
   - component: {fileID: 2003842895}
   - component: {fileID: 2003842897}
   - component: {fileID: 2003842896}
+  - component: {fileID: 2003842898}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BarText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1793,7 +1800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34600002, y: 0.7352223}
   m_AnchorMax: {x: 0.66300005, y: 0.7842223}
-  m_AnchoredPosition: {x: -8.002502, y: 0.8039856}
+  m_AnchoredPosition: {x: -8.002502, y: 0.8039551}
   m_SizeDelta: {x: 15.5, y: -3.1480713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003842896
@@ -1893,6 +1900,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003842894}
   m_CullTransparentMesh: 1
+--- !u!114 &2003842898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003842894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6c98ed36751c045b223faecc848b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1281100061}
+  _text: {fileID: 2003842896}
 --- !u!1 &2063842272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1923,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2063842273}
-  - component: {fileID: 2063842274}
   m_Layer: 5
   m_Name: Sliders
   m_TagString: Untagged
@@ -1922,8 +1942,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 173117347}
   - {fileID: 57327707}
+  - {fileID: 173117347}
   m_Father: {fileID: 601625601}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1932,22 +1952,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2063842274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063842272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4428021bd7e3f44a2db56fbf328b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1281100061}
-  _text: {fileID: 2003842896}
-  _firstSlider: {fileID: 173117348}
-  _secondSlider: {fileID: 57327709}
 --- !u!1 &2140357864
 GameObject:
   m_ObjectHideFlags: 0
