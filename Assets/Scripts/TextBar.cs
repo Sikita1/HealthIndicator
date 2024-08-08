@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class TextBar : SliderDisplay
+public class TextBar : HealthDisplay
 {
     [SerializeField] private TMP_Text _text;
 

@@ -1,12 +1,9 @@
-using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : SliderDisplay
+public class HealthBar : SliderView
 {
-    [SerializeField] private Slider _slider;
-
     protected override void OnHealthChanged(float health)
     {
-        _slider.value = health;
+        Slider.value = health;
     }
 }

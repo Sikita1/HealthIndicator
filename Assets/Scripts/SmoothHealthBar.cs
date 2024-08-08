@@ -2,10 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmoothHealthBar : SliderDisplay
+public class SmoothHealthBar : SliderView
 {
-    [SerializeField] private Slider _slider;
-
     private Coroutine _coroutine;
     private WaitForSeconds _wait;
 
@@ -24,9 +22,9 @@ public class SmoothHealthBar : SliderDisplay
     {
         _wait = new WaitForSeconds(_delay);
 
-        while (_slider.value != health)
+        while (Slider.value != health)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, health, _maxDelta);
+            Slider.value = Mathf.MoveTowards(Slider.value, health, _maxDelta);
             yield return _wait;
         }
     }

@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76cb73e6440217458db03570c902a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1281100061}
-  _slider: {fileID: 57327709}
+  _player: {fileID: 1281100061}
+  Slider: {fileID: 57327709}
 --- !u!1 &173117346
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccb8862e7d6c7f47b6206cef4faf8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1281100061}
-  _slider: {fileID: 173117348}
+  _player: {fileID: 1281100061}
+  Slider: {fileID: 173117348}
 --- !u!1 &430892353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 1281100058}
   - component: {fileID: 1281100057}
   - component: {fileID: 1281100061}
+  - component: {fileID: 1281100062}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1244,6 +1245,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageButton: {fileID: 1120066334}
   _treatmentButton: {fileID: 1991195805}
+  _health: {fileID: 1281100062}
+--- !u!114 &1281100062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281100056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccc3ef9f3fa68844a8fecccd509effa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327896171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,7 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6c98ed36751c045b223faecc848b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1281100061}
+  _player: {fileID: 1281100061}
   _text: {fileID: 2003842896}
 --- !u!1 &2063842272
 GameObject:

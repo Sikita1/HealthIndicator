@@ -6,50 +6,41 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Button _damageButton;
     [SerializeField] private Button _treatmentButton;
+    [SerializeField] private Health _health;
 
     public event UnityAction<float> ChangedHealth;
-    
-    private float _health = 50f;
-    private float _maxHealth = 100f;
-    private float _minHealth = 0f;
 
     private float _damage = 10f;
     private float _treatment = 10f;
 
     private void OnEnable()
     {
-        _treatmentButton.onClick.AddListener(Heal);
+        _treatmentButton.onClick.AddListener(TakeTreatment);
         _damageButton.onClick.AddListener(TakeDamage);
     }
 
     private void OnDisable()
     {
-        _treatmentButton.onClick.RemoveListener(Heal);
+        _treatmentButton.onClick.RemoveListener(TakeTreatment);
         _damageButton.onClick.RemoveListener(TakeDamage);
     }
 
     private void Start()
     {
-        ChangedHealth?.Invoke(_health);
+        ChangedHealth?.Invoke(_health.Current);
     }
 
     private void TakeDamage()
     {
-        _health -= _damage;
+        _health.TakeDamage(_damage);
 
-        if (_health < _minHealth)
-            _health = _minHealth;
-
-        ChangedHealth?.Invoke(_health);
+        ChangedHealth?.Invoke(_health.Current);
     }
 
-    private void Heal()
+    private void TakeTreatment()
     {
-        _health += _treatment;
+        _health.Increase(_treatment);
 
-        if (_health > _maxHealth)
-            _health = _maxHealth;
-
-        ChangedHealth?.Invoke(_health);
+        ChangedHealth?.Invoke(_health.Current);
     }
 }
